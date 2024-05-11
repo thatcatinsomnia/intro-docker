@@ -1,30 +1,11 @@
-# React + TypeScript + Vite
+# 前置
+- 透過 vite 在當前資料夾設置一個 react 專案
+- 使用 `npm run build` 產生 production 程式碼
+- 透過 `npm run preview` 確定 production 的程式碼運作正常
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
-
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+# 練習目標
+將當前的 react 專案容器化，並透過 ngix 來服務我們的 react 專案內容：
+- nginx 預設的路徑是 `/usr/share/nginx/html`，你會需要將透過 `npm run build` 產生的程式碼(通常是 `dist`)放到該路徑下。
+- nginx 預設的 port 是 80 port，你需要將 container 內部的 80 port 和 host 進行 mapping。
+- 需要使用 multi stage 方式來撰寫 Dockerfile。
+- 最後的 runtime image 直接使用 nginx image。
