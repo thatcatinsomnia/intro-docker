@@ -1,4 +1,8 @@
-FROM node:20-slim
+FROM node:alpine3.19
+
+ENV PORT=1333
+
+ENV DB_CONNECTION_STRING=mongodb://db:27017
 
 USER node
 
@@ -10,4 +14,4 @@ RUN npm ci
 
 COPY --chown=node:node . .
 
-CMD ["npm", "run", "dev"]
+CMD ["npm", "run", "start"]
