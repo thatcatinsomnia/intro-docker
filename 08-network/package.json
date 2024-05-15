@@ -1,10 +1,9 @@
 {
   "dependencies": {
     "express": "^4.19.2",
-    "mongodb": "^6.6.1",
-    "nodemon": "^3.1.0"
+    "mongodb": "^6.6.1"
   },
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "node index.js"
   }
 }
